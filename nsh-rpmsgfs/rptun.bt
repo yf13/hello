@@ -1,0 +1,19 @@
+(gdb) bt
+#0  _assert (filename=0x703bb40 "mm_heap/mm_malloc.c", linenum=246, msg=0x0, regs=0x7082870 <g_last_regs>) at misc/assert.c:536
+#1  0x0000000007009fa4 in __assert (filename=0x703bb40 "mm_heap/mm_malloc.c", linenum=246, msg=0x0) at assert/lib_assert.c:36
+#2  0x000000000700d79a in mm_malloc (heap=0x7089c00, size=70) at mm_heap/mm_malloc.c:246
+#3  0x000000000700dee0 in mm_zalloc (heap=0x7089c00, size=70) at mm_heap/mm_zalloc.c:45
+#4  0x000000000700c89c in kmm_zalloc (size=70) at kmm_heap/kmm_zalloc.c:51
+#5  0x0000000007012554 in inode_alloc (name=0x708e6bb "master", mode=146) at inode/fs_inodereserve.c:84
+#6  0x00000000070126e2 in inode_reserve (path=0x708e6b0 "/dev/rptun/master", mode=146, inode=0x708e640) at inode/fs_inodereserve.c:241
+#7  0x00000000070140da in register_driver (path=0x708e6b0 "/dev/rptun/master", fops=0x7040f88 <g_rpmsg_dev_ops>, mode=146, priv=0x708bca0) at driver/fs_registerdriver.c:78
+#8  0x000000000702593e in rpmsg_register (path=0x708e6b0 "/dev/rptun/master", rpmsg=0x708bca0, ops=0x7041a18 <g_rptun_rpmsg_ops>) at rpmsg/rpmsg.c:460
+#9  0x00000000070350ae in rptun_initialize (dev=0x7082a80 <g_rptun_dev>) at rptun/rptun.c:1005
+#10 0x000000000702a62e in k230_rptun_init (peername=0x703d2d8 "master") at chip/k230_rptun.c:325
+#11 0x00000000070221ba in board_late_initialize () at canmv_init.c:200
+#12 0x00000000070021ac in nx_start_application () at init/nx_bringup.c:320
+#13 0x000000000700229e in nx_start_task (argc=1, argv=0x708e010) at init/nx_bringup.c:403
+#14 0x00000000070033f6 in nxtask_start () at task/task_start.c:107
+#15 0x0000000000000000 in ?? ()
+Backtrace stopped: frame did not save the PC
+(gdb)

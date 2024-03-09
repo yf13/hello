@@ -1,0 +1,18 @@
+(gdb) bt
+#0  _assert (filename=0x703b860 "mm_heap/mm_malloc.c", linenum=246, msg=0x0, regs=0x7082870 <g_last_regs>) at misc/assert.c:536
+#1  0x0000000007009f6c in __assert (filename=0x703b860 "mm_heap/mm_malloc.c", linenum=246, msg=0x0) at assert/lib_assert.c:36
+#2  0x000000000700d746 in mm_malloc (heap=0x7089c00, size=112) at mm_heap/mm_malloc.c:246
+#3  0x000000000700c81c in kmm_malloc (size=112) at kmm_heap/kmm_malloc.c:51
+#4  0x000000000702079a in elf_loadphdrs (loadinfo=0x708e550) at libelf/libelf_sections.c:207
+#5  0x00000000070205ec in elf_load (loadinfo=0x708e550) at libelf/libelf_load.c:337
+#6  0x000000000701f850 in elf_loadbinary (binp=0x708d120, filename=0x703ad90 "/system/bin/init", exports=0x0, nexports=0) at elf.c:257
+#7  0x0000000007020c98 in load_absmodule (bin=0x708d120, filename=0x703ad90 "/system/bin/init", exports=0x0, nexports=0) at binfmt_loadmodule.c:115
+#8  0x0000000007020d5e in load_module (bin=0x708d120, filename=0x703ad90 "/system/bin/init", exports=0x0, nexports=0) at binfmt_loadmodule.c:219
+#9  0x000000000701f6c4 in exec_internal (filename=0x703ad90 "/system/bin/init", argv=0x708e7a0, envp=0x0, exports=0x0, nexports=0, actions=0x0, attr=0x708e788, spawn=true) at binfmt_exec.c:98
+#10 0x000000000701f790 in exec_spawn (filename=0x703ad90 "/system/bin/init", argv=0x708e7a0, envp=0x0, exports=0x0, nexports=0, actions=0x0, attr=0x708e788) at binfmt_exec.c:220
+#11 0x000000000700225c in nx_start_application () at init/nx_bringup.c:375
+#12 0x000000000700229e in nx_start_task (argc=1, argv=0x708e010) at init/nx_bringup.c:403
+#13 0x00000000070033be in nxtask_start () at task/task_start.c:107
+#14 0x0000000000000000 in ?? ()
+Backtrace stopped: frame did not save the PC
+(gdb) q
